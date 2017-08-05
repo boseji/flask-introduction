@@ -41,5 +41,7 @@ def authors():
 
 @app.route('/author/<authors_last_name>')
 def author(authors_last_name):
+    if authors_last_name not in AUTHORS_INFO.keys():
+        return render_template('routing/404.html')
     return render_template('routing/author.html',
                            author=AUTHORS_INFO[authors_last_name])

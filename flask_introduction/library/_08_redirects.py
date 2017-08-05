@@ -27,7 +27,9 @@ def info():
 @app.route('/request-info')
 def request_info():
     # Get location info using https://freegeoip.net/
-    geoip_url = 'http://freegeoip.net/json/{}'.format(request.remote_addr)
+    #geoip_url = 'http://freegeoip.net/json/{}'.format(request.remote_addr)
+    geoip_url = 'http://freegeoip.net/json/{}'.format(
+        request.headers['X-Forwarded-For'])
     client_location = requests.get(geoip_url).json()
     return render_template('request/info.html',
                            client_location=client_location)

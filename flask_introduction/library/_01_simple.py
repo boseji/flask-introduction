@@ -22,4 +22,4 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Welcome to our Library!'
+    return '<h1>Welcome to our Library!</h1>'
